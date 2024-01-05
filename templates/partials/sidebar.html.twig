@@ -1,0 +1,64 @@
+<div class="sidebar">
+    <div class="sidebar-background"></div>
+    <div class="sidebar-wrapper scrollbar-inner">
+        <div class="sidebar-content">
+            <div class="user">
+                <div class="avatar-sm float-left mr-2">
+                    <img src="{{ asset('img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                </div>
+                <div class="info">
+                    <a data-toggle="collapse">
+                        <span>
+                            {# <b>{{ app.user.username }}</b>  #}
+                            {# <span class="user-level"> {{ app.user.roles[0] }} </span> #}
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="{{ path('app_dashboard') }}">
+                        <i class="fas fa-home"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-table"></i>
+                    </span>
+                    <h4 class="text-section">TABLES</h4>
+                </li>
+                <li class="nav-item {% if menu == 'typeContact' %}active{% endif %}" >
+                    <a href="{{ path('app_type_contact') }}">
+                        <i class="fas fa-user"></i>
+                        <p>Type de Contact</p>
+                    </a>
+                </li>
+                <li class="nav-item {% if menu == 'contact' %}active{% endif %}">
+                    <a  href="{{ path('app_contact') }}">
+                        <i class="fas fa-pen-square"></i>
+                        <p>Contact</p>
+                    </a>
+                </li>
+                <li class="nav-item {% if menu == 'typeMessage' %}active{% endif %}">
+                    <a href="{{ path('app_type_message') }}">
+                        <i class="fas fa-car"></i>
+                        <p>Type de Message</p>
+                    </a>
+                </li>
+                <li class="nav-item {% if menu == 'message' %}active{% endif %}">
+                    <a href="{{ path('app_message') }}">
+                        <i class="fas fa-bell"></i>
+                        <p>Message</p>
+                    </a>
+                </li>
+                <li class="nav-item {% if menu == 'templateMessage' %}active{% endif %}">
+                    <a href="{{ path('app_template_message') }}">
+                        <i class="fas fa-bell"></i>
+                        <p>Template de message </p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
