@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Message;
-use App\Form\MessageFormType;
+use App\Form\MessageForm;
 use App\Repository\MessageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,7 +31,7 @@ class MessageController extends AbstractController
     public function addContact(Request $request, EntityManagerInterface $em): Response
     {
         $message = new Message();
-        $form = $this->createForm(MessageFormType::class, $message);
+        $form = $this->createForm(MessageForm::class, $message);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

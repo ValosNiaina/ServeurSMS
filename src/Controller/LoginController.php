@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'app_login')]
+    #[Route('/', name: 'app_login')]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
         // get the login error if there is one
@@ -17,6 +17,11 @@ class LoginController extends AbstractController
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+
+        // Redirect to the dashboard if the user is authenticated
+        if (!$error && $this->getUser()) {
+            return $this->redirectToRoute('dashboard');
+        }
 
         return $this->render('login/index.html.twig', [
             'last_username' => $lastUsername,

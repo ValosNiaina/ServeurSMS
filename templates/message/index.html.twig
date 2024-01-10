@@ -27,6 +27,11 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="d-flex align-items-center">
+										{% for flashMessage in app.flashes('error') %}
+											<div class="alert alert-danger">
+												{{ flashMessage }}
+											</div>
+										{% endfor %}
 										<a href="{{ path('app_Add_message') }}">
 											<button class="btn btn-primary btn-round ml-auto">
 												<i class="fa fa-plus"></i>
@@ -48,16 +53,6 @@
 													<th style="width: 10%"></th>
 												</tr>
 											</thead>
-											<tfoot>
-												<tr>
-													<th>ID</th>
-													<th>Contact</th>
-                                                    <th>Contenu</th>
-                                                    <th></th>
-                                                    <th>Date</th>
-                                                    <th>Action</th>
-												</tr>
-											</tfoot>
 											<tbody>
 												{% for message in messages %}
 													<tr>
